@@ -1,4 +1,5 @@
 class passenger::ree::apache inherits passenger::apache {
+  include passenger::ree
   Package['mod_passenger']{
     ensure => absent,
     require => [ Package['apache'], Package['rubygem-passenger'] ],
