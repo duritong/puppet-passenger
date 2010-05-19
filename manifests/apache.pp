@@ -1,8 +1,9 @@
 class passenger::apache{
-  include apache
+  include ::passenger
+  include ::apache
   package{'mod_passenger':
     ensure => installed,
-    require => Package['apache'],
+    require => [ Package['apache'], Package['rubygem-passenger'] ],
   }
 
   file{'/var/www/passenger_buffer':
