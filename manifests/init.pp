@@ -10,5 +10,5 @@
 #
 
 class passenger{
-    include passenger::base
+  include passenger::base
 }

@@ -1,3 +1,3 @@
 class passenger::ree inherits passenger {
-    include passenger::ree::base
+  include passenger::ree::base
 }
