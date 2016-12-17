@@ -1,6 +1,12 @@
 class passenger::base {
   require ruby
-  package{'rubygem-passenger':
-    ensure => installed,
+  if versioncmp($::operatingsystemmajrelease,'6') > 0 {
+    package{'mod_passenger':
+      ensure => installed,
+    }
+  } else {
+    package{'rubygem-passenger':
+      ensure => installed,
+    }
   }
 }
