@@ -1,7 +1,7 @@
 class passenger::base {
   require ruby
   if versioncmp($::operatingsystemmajrelease,'6') > 0 {
-    package{'mod_passenger':
+    package{'passenger':
       ensure => installed,
     }
   } else {
