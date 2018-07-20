@@ -17,4 +17,12 @@ class passenger::apache{
     group   => 0,
     mode    => '0644';
   }
+  if str2bool($facts['selinux']) {
+    selinux::fcontext{
+      '/var/www/passenger_buffer(/.*)?':
+        setype => 'httpd_sys_rw_content_t',
+    } -> File['/var/www/passenger_buffer']{
+      seltype => 'httpd_sys_rw_content_t',
+    }
+  }
 }
